@@ -1,1 +1,71 @@
-<
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hangman Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="assets/javascript/game.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Hangman Game</h1>
+            <p>How much do you know about Janet Jackson</p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="assets/photos/jj.jpg" class="img-circle" alt="janet jackson" width="304" height="236">
+            </div>
+
+            <div class="col-md-8">
+                <div class="container">
+                    <div class="scoreBoard">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <strong>Scoreboard</strong>
+                            </div>
+                            <div class="panel-body"></div>
+                            <div class="panel-body" id="numOfGuesses">Number of Guesses Remaining:</div>
+                            <div class="panel-body" id="lettersGuessed">Letters Already Guessed:</div>
+                            <div class="panel-body" id="Wins">Wins:</div>
+                            <div class="panel-body" id="Losses">Losses:</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <strong>Guess the word</strong>
+                        <div class="panel-body">
+                            <h3 id="letterSpaces">_ _ _ _ _ _ _ _</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="row"></div>
+                    <div class="col-md-12">
+                        <p class="text-center">&copy Rori Jackson</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+</body>
+
+</html>
