@@ -1,39 +1,84 @@
 
-var availWords = ["Escapade", "Rhythm Nation", "Nasty", "If", "Control", "Black Cat", "All For You", "Miss You Much", "Lets Wait A While", "Alright", "The Pleasure Principle"];
-var availChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var numOfGuesses = 15
 
+
+
+var availWords = ["escapade", "rhythm nation", "nasty", "if", "control", "black cat", "all for you", "miss you much", "lets wait a while", "alright", "the pleasure principle"];
+var numOfGuesses = 15;
 var userChoices = [];
 var underScores = [];
 var wins = 0;
-var losses  = 0;
+var losses = 0;
+var badGuess = [];
+var goodGuess = 0;
 var availGuesses = availWords[Math.floor(Math.random() * availWords.length)];
-var g;
+
+function newGame() {
+	console.log(availGuesses);
+	
+	for (var i = 0; i < availGuesses.length; i++) {
+
+		underScores.push("_");
+	};
+	console.log(underScores);
+	
+	document.getElementById('letterSpaces').textContent = underScores.join(" ");
+
+}
+
+function reset() {
+	var numOfGuesses = 15;
+	var userChoices = [];
+	var underScores = [];
+	var wins = 0;
+	var losses = 0;
+	var badGuess = [];
+	var goodGuess = 0;
+	var availGuesses = availWords[Math.floor(Math.random() * availWords.length)];
+}
+
+newGame();
+reset();
 
 
-//setting the underscores here 
 
-function startOfGame (
-    
-    for(var i=0; i < availGuesses; i++) {
-        underScores[i] = "_";
-        }
-    g= underScores.join(" ");
-    document.getElementById('letterSpaces').innerHTML = g
-);
+//grabbing the user's guesses
 
-function matchLetter (
 
-If (availchoices > 0) {
+document.onkeyup = function (event) {
+	userChoices = event.key.toLowerCase();
+	if (badGuess.indexOf(userChoices) > -1) {
+		alert("You have already guessed that letter");
+	}
 
-for (i=0; i < availchoices.length; i++) 
-	{
-	if (availWords[i] == availChoices)
-		{
-		underScores[i] = availChoices;
+	if (availGuesses.indexOf(userChoices) > -1) {
+		for (var i = 0; i < availGuesses.length; i++) {
+			if (availGuesses[i] === userChoices) {
+				underScores[i] = userChoices;
+				document.getElementById('letterSpaces').innerHTML = underScores.join(" ");
+				
+				goodGuess++;
+				if (goodGuess === underScores) {
+					alert("You win");
+					wins++;
+					document.getElementById('Wins').innerHTML = wins;
+				}
+
+			}
 		}
-		}
+	}
+	else {
+		badGuess.push(userChoices);
 		numOfGuesses--;
-		document.getElementById("letterSpaces").innerHTML = underScores[i].join(" ")
-		
+		document.getElementById("numOfGuesses").innerHTML = numOfGuesses;
+		if (numOfGuesses === 0) {
+			alert("You lose... Try again");
+			
+		}
+	}
+}
+
+
+
+
+
 
